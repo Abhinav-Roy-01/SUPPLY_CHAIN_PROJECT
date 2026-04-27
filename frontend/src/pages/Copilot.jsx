@@ -18,7 +18,7 @@ export default function Copilot() {
     setLoading(true);
 
     try {
-      const res = await axios.post('http://localhost:8000/api/v1/copilot/query', {
+      const res = await axios.post('https://biltybook-backend-758882460816.asia-south1.run.app/api/v1/copilot/query', {
         question: userMsg.text,
         context: {
           active_trips: 5,
@@ -29,7 +29,7 @@ export default function Copilot() {
       setMessages(prev => [...prev, { role: 'assistant', text: res.data.response.toUpperCase() }]);
     } catch (err) {
       console.error(err);
-      setMessages(prev => [...prev, { role: 'assistant', text: 'SYSTEM ERROR: CONNECTION TO BACKEND AI ENGINE FAILED. PLEASE START THE FASTAPI SERVER ON PORT 8000.' }]);
+      setMessages(prev => [...prev, { role: 'assistant', text: 'SYSTEM ERROR: REQUEST FAILED. CHECK CONSOLE FOR DETAILS.' }]);
     } finally {
       setLoading(false);
     }

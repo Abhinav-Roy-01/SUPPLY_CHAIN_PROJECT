@@ -2,7 +2,7 @@
  * Centralised API helper for backend calls.
  * Falls back gracefully if backend is offline.
  */
-const BASE_URL = 'http://localhost:8000/api/v1';
+const BASE_URL = 'https://biltybook-backend-758882460816.asia-south1.run.app/api/v1';
 
 export const api = {
   get: async (path) => {
